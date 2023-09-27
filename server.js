@@ -19,7 +19,6 @@ const server = net.createServer((socket) => {
     });
 
     socket.on('end', () => {
-        clients.splice(clients.indexOf(socket), 1);
         if (clientName) {
             broadcast(`${clientName} has left the chat.`, socket);
         }
@@ -34,7 +33,6 @@ function broadcast(message, sender) {
     });
 }
 
-const PORT = 3000;
-server.listen(PORT, () => {
-    console.log(`Chat server is running on port ${PORT}`);
+server.listen(3000, () => {
+    console.log(`Chat server is running on port 3000`);
 });
